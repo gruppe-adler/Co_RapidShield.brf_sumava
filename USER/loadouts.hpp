@@ -18,7 +18,7 @@
 */
 
 
-loadoutFactionBlu = "";
+loadoutFactionBlu = "SOGBLACK";
 loadoutFactionOpf = "";
 loadoutFactionInd = "";
 
