@@ -87,7 +87,22 @@
 
 
 
-["RAPID SHIELD - SCUD", "Make AA markers visible",
+["RAPID SHIELD - HELI", "Skin as Medic UH60",
+{
+  params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+  _position = ASLtoAGL _position;
+
+  if (!isNull _objectUnderCursor) then {
+    if (_objectUnderCursor isKindOf "Air") then {
+      [_objectUnderCursor] execvm "USER\scripts\skinHeli.sqf";
+    };
+  };
+
+}] call zen_custom_modules_fnc_register;
+
+
+["RAPID SHIELD - MARKERS", "Make AA markers visible",
 {
   params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 
@@ -103,7 +118,7 @@
 }] call zen_custom_modules_fnc_register;
 
 
-["RAPID SHIELD - SCUD", "Make AA markers invisible",
+["RAPID SHIELD - MARKERS", "Make AA markers invisible",
 {
   params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 
