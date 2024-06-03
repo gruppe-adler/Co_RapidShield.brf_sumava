@@ -58,6 +58,8 @@
     };
   } forEach _scuds;
 
+  systemchat "scuds firing!";
+
 }] call zen_custom_modules_fnc_register;
 
 
@@ -83,8 +85,23 @@
     };
   } forEach _scuds;
 
+   systemchat "scuds rising!";
+
 }] call zen_custom_modules_fnc_register;
 
+
+
+["RAPID SHIELD - RADAR", "Destroy Radar",
+{
+  params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+  _position = ASLtoAGL _position;
+
+  [] execvm "user\scripts\destroyRadar.sqf";
+
+   systemchat "radar destroyed!";
+
+}] call zen_custom_modules_fnc_register;
 
 
 ["RAPID SHIELD - HELI", "Skin as Medic UH60",
@@ -98,6 +115,8 @@
       [_objectUnderCursor] execvm "USER\scripts\skinHeli.sqf";
     };
   };
+
+   systemchat "heli skinned!";
 
 }] call zen_custom_modules_fnc_register;
 
@@ -115,6 +134,8 @@
     _x setMarkerAlpha 1;
   } forEach _markers;
 
+   systemchat "markers shown!";
+
 }] call zen_custom_modules_fnc_register;
 
 
@@ -129,10 +150,29 @@
   
   {
     _x setMarkerAlpha 0;
+    
   } forEach _markers;
+
+   systemchat "markers hidden!";
 
 }] call zen_custom_modules_fnc_register;
 
+
+
+["RAPID SHIELD - AMMO", "Add Ammo to Vehicle/Box",
+{
+  params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+  _position = ASLtoAGL _position;
+
+  if (_objectUnderCursor isKindOf "ReammoBox_F") then {
+    [_objectUnderCursor] execvm "USER\scripts\ammobox.sqf";
+    systemchat "filled box!";
+  } else {
+    systemchat "not a box";
+  };
+
+}] call zen_custom_modules_fnc_register;
 
 
 //////////////
